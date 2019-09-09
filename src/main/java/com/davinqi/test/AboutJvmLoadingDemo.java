@@ -159,16 +159,36 @@ public class AboutJvmLoadingDemo {
      * 类的加载是第一阶段：
      */
     public void aboutLink_Check() {
-
+        // 1.格式检查(class文件)
         /**
-         *格式检查(calss文件)
+         * 必须盘对你类的二进制的数据是否符合改革是要求规范：
          *--- 魔数检查
          *--- 版本检查
-         *---
+         *--- 长度检查
          */
-        //语义检查
-        //字节码验证
-        //符号引用验证
+        //2. 语义检查
+        /**
+         *--- 是否继承final：不可以继承类或者重写方法.
+         *--- 是否有父类 ：除了Object，其他都应该有父类。
+         *--- 继承的抽象方法是否已经实现：
+         *--- 存在不兼容的方法： 方法签名：除了返回值不相同，其他都相同
+         * 如：
+         *  public void test() {
+         *     }
+         *
+            public String  test() {
+         *     return  "";
+         *     }
+         */
+        //3. 字节码验证
+        /**
+         *--- 跳转指令是否指向正确位置。
+         *--- 操作数据类型是否合理 【栈映射帧（StackMapTable）】。
+         */
+        //4. 符号引用验证
+        /**
+         *--- 符号引用的直接引用是否存在。
+         */
     }
 
     /**
@@ -176,23 +196,21 @@ public class AboutJvmLoadingDemo {
      * 类的加载是第一阶段：
      */
     public void aboutLink_Prepare() {
-
     }
+
+
     /**
      * 2: >>>> 连接： （3）解析
      * 类的加载是第一阶段：
      */
     public void aboutLink_Analysis() {
-
     }
 
-     /**
+    /**
      * 3: >>>> 初始化：
      * 类的加载是第一阶段：
      */
     public void aboutInitialize() {
-
-
     }
 
 
