@@ -80,7 +80,7 @@ public class AboutJvmLoadingDemo {
         Dog dog = new Dog();
         dog.eat("苹果");
         System.out.println("// >>>>>>>> end .........................");
-*/
+      */
         //结果：
         // >>>>>>>> begin  .........................
         //// parent  static ！
@@ -146,7 +146,6 @@ public class AboutJvmLoadingDemo {
         try {
             Class<?> aClass = Class.forName("");
             Method[] declaredMethods = aClass.getDeclaredMethods();
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -156,7 +155,7 @@ public class AboutJvmLoadingDemo {
 
     /**
      * 2: >>>> 连接： （1）验证
-     * 类的加载是第一阶段：
+     * 类的加载是第二阶段：
      */
     public void aboutLink_Check() {
         // 1.格式检查(class文件)
@@ -166,6 +165,7 @@ public class AboutJvmLoadingDemo {
          *--- 版本检查
          *--- 长度检查
          */
+
         //2. 语义检查
         /**
          *--- 是否继承final：不可以继承类或者重写方法.
@@ -175,40 +175,58 @@ public class AboutJvmLoadingDemo {
          * 如：
          *  public void test() {
          *     }
-         *
-            public String  test() {
+         *  public String test() {
          *     return  "";
          *     }
          */
+
         //3. 字节码验证
         /**
          *--- 跳转指令是否指向正确位置。
          *--- 操作数据类型是否合理 【栈映射帧（StackMapTable）】。
          */
-        //4. 符号引用验证
+
+        //4. 符号引用验证:
         /**
          *--- 符号引用的直接引用是否存在。
          */
     }
 
     /**
-     * 2: >>>> 连接： （2）准备
-     * 类的加载是第一阶段：
+     * 2: >>>> 连接:（2）准备
+     * 类的加载是第二阶段
      */
     public void aboutLink_Prepare() {
+        //此阶段jvm会分配内存空间,设置初始值。
+        /**
+         * int -> 0
+         * long  ->0L
+         * short ->(short)0
+         * char ->\u0000
+         * boolean -> false
+         * reference -> null
+         * flat -> 0f
+         * double -> 0f
+         */
+
+        /**
+         * java 内部其实并不支持boolean类型，内部实现的是使用的int类型。因为int默认是0 ，所以boolean的默认值是true。
+         *
+         */
+
     }
 
 
     /**
      * 2: >>>> 连接： （3）解析
-     * 类的加载是第一阶段：
+     * 类的加载是第二阶段：
      */
     public void aboutLink_Analysis() {
     }
 
     /**
      * 3: >>>> 初始化：
-     * 类的加载是第一阶段：
+     * 类的加载是第三阶段：
      */
     public void aboutInitialize() {
     }
