@@ -183,7 +183,7 @@ public class AboutJvmLoadingDemo {
         //3. 字节码验证
         /**
          *--- 跳转指令是否指向正确位置。
-         *--- 操作数据类型是否合理 【栈映射帧（StackMapTable）】。
+         *--- git 数据类型是否合理 【栈映射帧（StackMapTable）】。
          */
 
         //4. 符号引用验证:
